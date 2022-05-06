@@ -36,11 +36,10 @@ def halfDivision(a, b, epsilon, delta):
 
 def secantMethod():
     m = 0
-    print("Начальное приближение:  x0: ")
+    print("Введите начальное приближение: ")
     x0 = float(input())
-    x1 = x0 - f(x0)/f1(x0)
-    #print("Начальное приближение:  x1: ")
-    #x1 = float(input())
+    x1 = (x0 - f(x0))/f1(x0)
+
     while math.fabs(x1 - x0) > epsilon:
         xk = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))
         x0 = x1
@@ -65,19 +64,19 @@ fig.set_figheight(6)
 plt.grid()
 plt.show()
 
-print("Введите epsilon = ")
-epsilon = float(input())
-print("Введите delta = ")
-delta = float(input())
+
+epsilon = float(input("eps = "))
+
+delta = float(input("del = "))
 
 flag = True
 while flag:
     n = 0
     a = float(input("Введите левую границу интервала: "))
     b = float(input("Введите правую границу интервала: "))
-    print("Результат метода половинного деления")
+    print("*** Метод половинного деления ***")
     halfDivision(a, b, epsilon, delta)
-    print("Результат метода секущих")
+    print("*** Метод секущих ***")
     secantMethod()
     ans_flag = True
     while ans_flag:
